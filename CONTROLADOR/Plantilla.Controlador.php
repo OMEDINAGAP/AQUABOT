@@ -10,5 +10,6 @@ class ControladorPlantilla
 	{
 		# code...
 		include "VISTA/plantilla.php";
+		
 	}
 }

@@ -6,9 +6,9 @@ class ControladorContacto
 
 
             # code...
-            if (isset($_POST["name"])) {
+            if (isset($_POST["name"]) && $_POST["name"] != "") {
                 # code...
-                    if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["name"])) {
+                    /* if ($_POST["name"] != "") { */
                         # code...
                         if (preg_match('/^[0-9]+$/', $_POST["tel_contacto"])) {
                             # code...
@@ -26,7 +26,8 @@ class ControladorContacto
 
                             if ($respuesta == "ok") {
                                 # code...
-                                 # Validacion del telefono...
+                                 # Si pasa la validacion del envio de correo y grardar la base de datos...
+                               
                                 echo '<script>Swal.fire({
                                     title: "Enviado!",
                                     text: "Pronto nos comunicaremo con usted.",
@@ -34,13 +35,20 @@ class ControladorContacto
                                     imageWidth: 400,
                                     imageHeight: 300,
                                     imageAlt: "Custom image",
-                                  })</script>';  
+                                  })</script>';
+                                  
+                                  //sleep for 3 seconds
+                                  sleep(3);
+                                  echo '<script> window.location = "inicio"; </script>';
+
+                                  
+                                
                             }
-                            else {
+                            else if ($respuesta == "error"){
                                 # Validacion del telefono...
                                 echo '<script>Swal.fire({
                                 title: "Disculpe las Molestias!",
-                                text: "Tenemos un inconveniente, intente mas tarde , '.$respuesta.'",
+                                text: "Tenemos un inconveniente, intente mas tarde.",
                                 confirmButtonText: "OK"
                                 })</script>';                
                             
@@ -61,11 +69,14 @@ class ControladorContacto
 
 
                         
-                    }else {
+                    /* }else {
                         # code...
-                        var_dump("no paso el pregmatch del nombre");
-                    }
-            }
+                        echo "no hay nada que enviar";
+                    } */
+            }else {
+                # code...
+                /* echo "No tengo valores"; */
+            } 
     }
 }
 
