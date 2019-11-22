@@ -1,4 +1,4 @@
-<div class="highlight-phone" style="margin-top: 55px;">
+<div class="highlight-phone" style="margin-top: 55px;" data-aos="fade-up">
     <div class="container">
         <div class="row">
             <div class="col-sm-4 d-xl-flex align-items-xl-start">

@@ -1,5 +1,6 @@
 <div id="galeria" class="photo-gallery"
-    style="margin-top: 50px;background-color: rgb(241,247,252);margin-bottom: 50px;padding-bottom: 50px;">
+    style="margin-top: 50px;background-color: rgb(241,247,252);margin-bottom: 50px;padding-bottom: 50px;"
+    data-aos="fade-up" data-aos-anchor-placement="top-bottom">
     <div class="container">
         <div class="intro">
             <h2 class="text-center d-xl-flex justify-content-xl-center" style="color: rgb(0,0,0);">&nbsp;AquaBOT<a
@@ -8,7 +9,8 @@
                 prototipo <em>explorer </em>de AquaBOT en playas de Los Cabos. </p>
         </div>
         <div class="row photos"
-            style="background-color: #000000;padding-top: 20px;padding-right: 20px;padding-left: 20px;">
+            style="background-color: #000000;padding-top: 20px;padding-right: 20px;padding-left: 20px;"
+            data-aos="flip-left">
             <!-- <div class="col-sm-6 col-md-4 col-lg-3 item"><a
                     href="assets/img/73458980_10156541781116884_7414551447817158656_o.jpg" data-lightbox="photos"><img
                         class="img-fluid" src="assets/img/73458980_10156541781116884_7414551447817158656_o.jpg"

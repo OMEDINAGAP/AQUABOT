@@ -1,4 +1,4 @@
-<div class="simple-slider">
+<div class="simple-slider" data-aos="zoom-in">
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <!-- <div class="swiper-slide" style="background-image: url(assets/img/photo-1472715148636-92e348325950.jpg);max-height: 500px;"></div>

@@ -1,4 +1,4 @@
-<div>
+<div data-aos="fade-up" data-aos-anchor-placement="top-bottom">
     <div class="container">
         <div class="row">
             <div class="col"><a href="#" id="playaslink"></a></div>
@@ -9,7 +9,7 @@
         </div>
     </div>
 </div>
-<div class="map-clean">
+<div class="map-clean" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
     <div class="container">
         <div class="intro">
             <h2 class="text-center">Los Cabos, Baja California Sur. México</h2>

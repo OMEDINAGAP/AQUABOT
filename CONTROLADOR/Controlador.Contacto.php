@@ -28,18 +28,25 @@ class ControladorContacto
                                 # code...
                                  # Si pasa la validacion del envio de correo y grardar la base de datos...
                                
-                                echo '<script>Swal.fire({
-                                    title: "Enviado!",
-                                    text: "Pronto nos comunicaremo con usted.",
-                                    imageUrl: "assets/img/sendEmail.gif",
-                                    imageWidth: 400,
-                                    imageHeight: 300,
-                                    imageAlt: "Custom image",
-                                  })</script>';
-                                  
-                                  //sleep for 3 seconds
-                                  sleep(3);
-                                  echo '<script> window.location = "inicio"; </script>';
+                                echo '<script>
+                                    Swal.fire({
+                                        title: "Enviado!",
+                                        text: "Pronto nos comunicaremo con usted.",
+                                        imageUrl: "assets/img/sendEmail.gif",
+                                        imageWidth: 400,
+                                        imageHeight: 300,
+                                        imageAlt: "Custom image",
+                                        confirmButtonText: "OK"
+                                        }).then((result) => {
+                                            if (result.value) {
+                                                window.location = "inicio";
+                                            }
+                                        })
+                                   </script>';    
+                                    
+                                    
+
+                                    
 
                                   
                                 

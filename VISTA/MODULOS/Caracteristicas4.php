@@ -1,4 +1,4 @@
-<div class="highlight-phone" style="margin-top: 50px;margin-bottom: 50px;">
+<div class="highlight-phone" style="margin-top: 50px;margin-bottom: 50px;" data-aos="fade-up">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -13,10 +13,10 @@
                 </div>
             </div>
             <div class="col-sm-4">
-               <!--  <div class="d-none d-md-block iphone-mockup imagenvigila" style="transform: rotate(0deg);"><img
+                <!--  <div class="d-none d-md-block iphone-mockup imagenvigila" style="transform: rotate(0deg);"><img
                         class="img-fluid device" src="assets/img/photo-1472108591690-92fca4e29244.jpg"
                         style="width: 150%;margin-top: 20%;margin-left: 0px;"></div> -->
-                        <?php
+                <?php
 
                 $item = "Tipo";
                 $valor = "4";

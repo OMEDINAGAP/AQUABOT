@@ -1,5 +1,6 @@
-<div class="highlight-phone" style="padding-top: 100px;margin-top: 55px;">
-    <h2 class="text-center" style="margin-bottom: 100px;margin-top: -60px;font-size: 38px;"><em>Explorer</em> en tus
+<div class="highlight-phone" style="padding-top: 100px;margin-top: 55px;" data-aos="fade-up">
+    <h2 class="text-center" style="margin-bottom: 100px;margin-top: -60px;font-size: 38px;">
+        <em>Explorer</em> en tus
         playas</h2>
     <div class="container d-sm-flex">
         <div class="row d-sm-flex">

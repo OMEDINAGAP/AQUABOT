@@ -41,6 +41,10 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
+    <!-- Sweet Scroll AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
 </head>
 
 <body style="background-color: rgb(255,255,255);"
@@ -59,7 +63,7 @@
         if(isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok")
         {
 
-              echo '<div class="wrapper">';
+              /* echo '<div class="wrapper">'; */
            
 
             // NOTE CONTENIDO TEMPORAL     
@@ -94,7 +98,7 @@
 
             if(isset($_GET["ruta"])){
 
-                      if($_GET["ruta"] == "inicio" ||
+                      if($_GET["ruta"] == "inicio-Admin" ||
                           $_GET["ruta"] == "salir"){
                           
                             // NOTE HEADER
@@ -180,9 +184,9 @@
 
             } else {              
               # code...
-             
-              include "modulos/404.php";
-              
+              include "modulos/navbar.php";
+              include_once "modulos/404.php";
+              include_once "modulos/footer.php";
             }
 
         
@@ -195,8 +199,10 @@
 
     ?>
 
-
-
+    <!-- Inicializar Sweet Scroll AOS -->
+    <script>
+    AOS.init();
+    </script>
 
     <!--  SECTION  Enlazamos ls archivos JS... -->
 
@@ -206,6 +212,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
     <script src="assets/js/Simple-Slider.js"></script>
     <script src="assets/js/Slider_Carousel_webalgustocom.js"></script>
+
+    <!-- Sweet Scroll AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 
 
