@@ -9,12 +9,14 @@
 
 		include_once "CONTROLADOR/Plantilla.Controlador.php";
 		include_once "CONTROLADOR/Controlador.Contacto.php";
+		include_once "CONTROLADOR/usuarios.controlador.php";
 		include_once "CONTROLADOR/Controlador.Caracteristicas.php";
 		include_once "MODELO/Modelo.Caracteristicas.php";
 		include_once "MODELO/Modelo.Contacto.php";
 		include_once "MODELO/PHPMailer.php";
 		include_once "MODELO/SMTP.php";
 		include_once "MODELO/Exception.php";
+		include_once "MODELO/usuarios.modelo.php";
 		include_once "VISTA/Plantilla.php";
 		
 

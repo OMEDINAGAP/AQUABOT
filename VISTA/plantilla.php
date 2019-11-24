@@ -1,3 +1,14 @@
+<?php
+
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -44,6 +55,12 @@
     <!-- Sweet Scroll AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="AdminLTE-2.4.2/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="AdminLTE-2.4.2/dist/css/skins/_all-skins.min.css">
+
+
+    <link rel="stylesheet" href="AdminLTE-2.4.2/bower_components/Ionicons/css/ionicons.min.css">
+
 
 </head>
 
@@ -56,115 +73,14 @@
       # code...
       $_GET["ruta"]="inicio";
     }
+
+   
+
     
 
-        // NOTE Validacion de Sessiones
+   
 
-        if(isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok")
-        {
-
-              /* echo '<div class="wrapper">'; */
-           
-
-            // NOTE CONTENIDO TEMPORAL     
-
-            /* ANCHOR  REVISAMOS SI LA SESION A CADUCADO*/
-
-            $now = time();
-            if($now > $_SESSION['expire']) {
-                
-              # Alerta Suave para salir...
-
-                echo '<script>
-                swal({
-                type: "error",
-                title: "Oops...",
-                text: "¡Tu sesion a Expirado!",
-                footer: "<a href>Iniciar Sesion..</a>"
-                  }).then((result)=>{
-                      
-                    if(result.value){
-                        window.location = "salir";
-                    }
-                });
-                </script>';
-
-            } 
-            
-            
-
-
-             # SECTION  Usuario Administrador...
-
-            if(isset($_GET["ruta"])){
-
-                      if($_GET["ruta"] == "inicio-Admin" ||
-                          $_GET["ruta"] == "salir"){
-                          
-                            // NOTE HEADER
-
-                            include "modulos/Mainheader.php";
-
-                            // NOTE MENU       
-
-                            include "modulos/menu.php";
-
-                            // NOTE MODULOS     
-
-                            include "modulos/".$_GET["ruta"].".php";
-
-
-
-
-
-
-                             # SECTION  Usuario Registrado...
-
-                      }else if ($_GET["ruta"] == "Dashboard-User" || 
-                                $_GET["ruta"] == "salir") {
-                        # code...
-
-                        // NOTE HEADER
-
-                        include "modulos/Mainheader-User.php";
-
-                        // NOTE MENU  USER     
-
-                        include "modulos/menu-User.php";
-
-                        // NOTE MODULOS     
-
-                        include "modulos/".$_GET["ruta"].".php";
-
-                        
-                      
-                      }else{
-
-                        include "modulos/404.php";
-                      }
-
-
-
-                      // NOTE FOOTER      
-
-                        include "modulos/footer.php";
-
-
-                      
-                      
-
-
-            }else {
-
-              # SECTION  Modulo Login...
-
-              include "modulos/login.php";
-
-            }
-
-      }else {
-
-            # SECTION  Usuario Normal que no se han logueado...
+     # SECTION  Usuario Normal que no se han logueado...
            
             if ($_GET["ruta"] == "inicio") {
               # code...
@@ -182,7 +98,84 @@
             include_once "modulos/quienes.somos.php";
             include_once "modulos/footer.php";
 
-            } else {              
+            } elseif ($_GET["ruta"] == "login") {
+              # code...
+              ?>
+    <link rel="stylesheet" href="AdminLTE-2.4.2/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+
+    <?php
+              include_once "modulos/login.php";
+            }
+            
+            
+            elseif ($_GET["ruta"] == "salir") {
+              # code...             
+              include_once "modulos/salir.php";
+            }
+            
+            
+            else if ($_GET["ruta"] == "Admin" ||
+                     $_GET["ruta"] == "Admin-state") {
+              # code...
+                            if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok") {
+
+                              $now = time();
+                              if($now > $_SESSION['expire']) {
+                                  # Responde la DB con OK...
+                  
+                                  echo '<script>
+                                  swal({
+                                  type: "error",
+                                  title: "Oops...",
+                                  text: "¡Tu sesion a Expirado!",
+                                  footer: "<a href>Iniciar Sesion..</a>"
+                                    }).then((result)=>{
+                                        
+                                      if(result.value){
+                                          window.location = "salir";
+                                      }
+                                  });
+                                  </script>';
+                  
+                              } 
+
+
+                              
+                              # Usuario Logueado...
+                              include "modulos/admin/Admin-navbar.php";
+                              include_once "modulos/admin/".$_GET["ruta"].".php";
+                              include_once "modulos/admin/Admin-footer.php";
+
+
+
+
+
+
+
+                            } else {
+                              # Redireccionamos al Login a usuarios que no tienen sesion Iniciada...                                
+                              echo '<link rel="stylesheet" href="AdminLTE-2.4.2/bower_components/bootstrap/dist/css/bootstrap.min.css">';
+                              include_once "modulos/login.php";
+                            }
+                            
+              
+        
+        
+            }
+
+
+
+
+
+
+
+
+
+
+            
+            
+            else {              
               # code...
               include "modulos/navbar.php";
               include_once "modulos/404.php";
@@ -192,7 +185,7 @@
         
         
 
-      }
+      
 
       
 

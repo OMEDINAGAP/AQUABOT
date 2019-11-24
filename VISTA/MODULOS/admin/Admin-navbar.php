@@ -1,5 +1,6 @@
 <nav class="navbar navbar-light navbar-expand-md fixed-top navigation-clean-button"
     style="background-color: rgba(15,68,116,0.88);">
+
     <div class="container"><a class="navbar-brand" href="#portada"
             style="width: 150px;height: 40px;background-image: url(assets/img/explowhite.png);background-position: center;background-size: contain;background-repeat: no-repeat;"></a><button
             class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle
@@ -22,26 +23,17 @@
             </ul>
 
 
-            <?php
-                        if(isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok") 
-                        { 
-                                echo ' <div class="navbar-custom-menu">
-                                <span class="navbar-text actions"> <a href="#" class="btn btn-success action-button">
-                                        '. $_SESSION["nombre"].'</a>
-                                </span>
-                                <span class="navbar-text actions"> <a href="salir" class="btn btn-light action-button">Cerrar
-                                        Sesion</a>
-
-                                </div>';
-                        
-                        } else{
-                                echo ' <span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="login"
-                                style="font-family: " Open Sans", sans-serif;">Iniciar Sesión</a></span>';
-                        }
-
-        ?>
 
 
+            <div class="navbar-custom-menu">
+                <span class="navbar-text actions"> <a href="#" class="btn btn-success action-button">
+                        <?php echo $_SESSION["nombre"]; ?></a>
+                </span>
+                <span class="navbar-text actions"> <a href="salir" class="btn btn-light action-button">Cerrar
+                        Sesion</a>
+
+
+            </div>
 
 
 
