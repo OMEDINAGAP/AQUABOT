@@ -5,16 +5,16 @@
                 <div class="col-sm-6 col-md-3 item">
                     <h3>Explorer</h3>
                     <ul>
-                        <li><a href="Index.html">Inicio</a></li>
-                        <li><a href="#galerialink">Galeria</a></li>
-                        <li><a href="#playaslink">Playas</a></li>
+                        <li><a href="inicio">Inicio</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="#puntos">Playas</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-6 col-md-3 item">
                     <h3>Acerca</h3>
                     <ul>
-                        <li><a href="#contactolink">Contacto</a></li>
-                        <li><a href="#conocenoslink">Conocenos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#conocenos">Conocenos</a></li>
                         <li><a href="http://www.itesloscabos.edu.mx/ites/index.php" target="_blank">ITES</a></li>
                     </ul>
                 </div>

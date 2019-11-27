@@ -3,7 +3,11 @@
         style="background-image: url(assets/img/72525927_10156541781556884_3486083778588180480_o.jpg);background-size: cover;background-repeat: no-repeat;background-position: top;width: 100%;color: rgb(255,255,255);background-color: rgb(255,255,255);height: 1170px;padding-bottom: 0px;margin-top: -20px;">
         <div class="container hero">
             <div class="row d-xl-flex">
-                <div class="col-md-8 offset-md-2">
+                <div class="col-md-12 offset-md-2">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                     <h1 class="text-center" style="margin-top: 31px;padding: 0px;margin-bottom: -3px;"
                         data-aos="fade-up" data-aos-duration="1000">Conoce Explorer
                     </h1>
@@ -14,14 +18,15 @@
                         data-aos="fade-up" data-aos-duration="1200">
                         ¡inalambricamente!</h6>
                     <div class="d-lg-flex d-xl-flex justify-content-xl-center align-items-xl-start"
-                        style="height: 500px;max-height: 500px;">
+                        style="height: 500px;max-height: 500px; text-align: -webkit-center;">
                         <div>
                             <blockquote class="instagram-media" data-instgrm-captioned
                                 data-instgrm-permalink="https://www.instagram.com/p/Bqao7U7Amvc/?utm_source=ig_embed&amp;utm_campaign=loading"
-                                data-instgrm-version="12" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; 
-                        width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);" data-aos="fade-up"
+                                data-instgrm-version="12"
+                                style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; 
+                        width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px); text-align: -webkit-center;" data-aos="fade-up"
                                 data-aos-duration="1400">
-                                <div style="padding:16px;"> <a
+                                <div style="padding:16px; text-align: -webkit-center;"> <a
                                         href="https://www.instagram.com/p/Bqao7U7Amvc/?utm_source=ig_embed&amp;utm_campaign=loading"
                                         style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
                                         target="_blank">

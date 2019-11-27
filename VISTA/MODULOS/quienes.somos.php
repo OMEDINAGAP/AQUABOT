@@ -1,4 +1,4 @@
-<div class="team-boxed" style="padding-top: 80px;padding-bottom: 80px;">
+<div id="conocenos" class="team-boxed" style="padding-top: 80px;padding-bottom: 80px;">
     <div class="container">
         <div class="intro" data-aos="fade-up">
             <h2 class="text-center">Conócenos<a href="#" id="conocenoslink"></a></h2>

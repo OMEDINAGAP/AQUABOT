@@ -84,15 +84,14 @@ class ModeloUsuarios
     static public function mdlIngresarUsuario($tabla, $datos)
     {
         # Creamos la consulta a la Base de Datos...
-        $stmt   =   Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, usuario, password, perfil, area, puesto, foto) VALUES (:nombre, :usuario, :password, :perfil, :area,:puesto, :foto)");
+        $stmt   =   Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, usuario, password, email, telefono, foto) VALUES (:nombre, :usuario, :password, :email, :telefono, :foto)");
     
         # Enlazamos los valores..
         $stmt   ->  bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
         $stmt   ->  bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
         $stmt   ->  bindParam(":password", $datos["password"], PDO::PARAM_STR);
-        $stmt   ->  bindParam(":perfil", $datos["perfil"], PDO::PARAM_STR);
-        $stmt   ->  bindParam(":area", $datos["area"], PDO::PARAM_STR);
-        $stmt   ->  bindParam(":puesto", $datos["puesto"], PDO::PARAM_STR);
+        $stmt   ->  bindParam(":email", $datos["email"], PDO::PARAM_STR);
+        $stmt   ->  bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
         $stmt   ->  bindParam(":foto", $datos["foto"], PDO::PARAM_STR);     
 
          # Ejecutamos..
@@ -241,6 +240,44 @@ class ModeloUsuarios
        $stmt -> close();
        # Se vuelve null para soltar la memoria
        $stmt = null;
+     }
+
+
+     static public function mdlRecuperarUsuario($tabla, $item, $valor)
+     {
+      
+        /* NOTE VALIDAMOS SI REGRESA UN VALOR O TODOS */
+        
+        if ($item != null) {
+            # Enviamos un Registro...
+            # Creamos la consulta a la Base de Datos...
+            $stmt   =   Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item AND asignacion = '1'");
+            # Enlazamos los valores..
+            $stmt   ->  bindParam(":".$item, $valor, PDO::PARAM_STR);
+            $stmt   ->  execute();
+
+            # Regresamos Un solo valos con fetch..
+            return $stmt    ->  fetch();
+        }else {
+            # Enviamos todos los Registros...
+            # Creamos la consulta a la Base de Datos...
+            $stmt   =   Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE asignacion = '1'");
+            $stmt   ->  execute();
+
+            # Regresamos Un solo valos con fetch..
+            return $stmt    ->  fetchAll();
+        }
+
+
+
+
+      
+        # Cerramos la conexion
+        $stmt -> close();
+        # Se vuelve null para soltar la memoria
+        $stmt = null;
+        
+
      }
 
 

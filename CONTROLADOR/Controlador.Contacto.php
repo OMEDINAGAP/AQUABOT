@@ -60,6 +60,7 @@ class ControladorContacto
                                 })</script>';                
                             
                             }
+                           
 
 
 
@@ -85,8 +86,20 @@ class ControladorContacto
                 /* echo "No tengo valores"; */
             } 
     }
+
+  
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
 }
-
-
-
-/* Generador de Objeto Contacto */

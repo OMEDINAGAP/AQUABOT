@@ -1,4 +1,4 @@
-<div class="contact-clean">
+<div class="contact-clean" id="contacto">
     <form method="POST" id="FormContacto" data-aos="flip-down">
         <p class="text-center" style="font-family: 'Open Sans', sans-serif;">Tecnología para ayudar. Los Cabos como
             <strong>destino turistico inteligente</strong>.</p>

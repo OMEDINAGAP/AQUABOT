@@ -31,8 +31,15 @@
                 <div class="col-xs-4 btn-block">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
                 </div>
+
+
                 <div class="col-xs-12 btn-block center-block">
-                    <a href="inicio">Regresar</a>
+                    <a href="recuperar">Olvidaste tus datos, No te preocupes. <strong>Recupera tu cuenta </strong></a>
+
+                </div>
+
+                <div class="col-xs-12 btn-block center-block">
+                    <a href="inicio">Regresar al Inicio</a>
 
                 </div>
                 <!-- /.col -->
@@ -48,6 +55,6 @@
 
 
     </div>
-    <!-- /.login-box-body -->
+
 </div>
 <!-- /.login-box -->

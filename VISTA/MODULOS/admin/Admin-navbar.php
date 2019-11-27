@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light navbar-expand-md fixed-top navigation-clean-button"
+<!-- <nav class="navbar navbar-light navbar-expand-md fixed-top navigation-clean-button"
     style="background-color: rgba(15,68,116,0.88);">
 
     <div class="container"><a class="navbar-brand" href="#portada"
@@ -37,6 +37,53 @@
 
 
 
+        </div>
+    </div>
+</nav> -->
+
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+    <div class="container">
+        <a href="/LOGIN/dashboard/index.php" class="navbar-brand">LDS Los Cabos</a>
+        <button class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav">
+                <li class="nav-item px-2">
+                    <a href="/LOGIN/dashboard/index.php" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a href="#" class="nav-link">Post</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a href="#" class="nav-link">Categories</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a href="/LOGIN/dashboard/users.php" class="nav-link">Usuarios</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown mr-3">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user"></i> Welcome <?php echo  $_SESSION['username'];?>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-user-circle"></i> Profile <?php echo  $_SESSION['IDKey'];?>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-cog"></i> Settings
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="/LOGIN/src/users/logout.php" class="nav-link">
+                        <i class="fa fa-user-times"></i> Logout
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

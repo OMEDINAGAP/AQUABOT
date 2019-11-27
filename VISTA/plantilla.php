@@ -16,9 +16,19 @@ if(!isset($_SESSION))
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>DISEÑO</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!--     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css"> -->
+    <!--     <-- Bootstrap 3.3.7 --
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <-- Font Awesome --
+    <link rel="stylesheet" href="AdminLTE-2.4.2/bower_components/font-awesome/css/font-awesome.min.css">
+
+    <-- Ionicons --
+    <link rel="stylesheet" href="AdminLTE-2.4.2/bower_components/Ionicons/css/ionicons.min.css"> -->
+
+
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
@@ -47,20 +57,31 @@ if(!isset($_SESSION))
     <link rel="stylesheet" href="assets/css/Slider_Carousel_webalgustocom.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/Team-Boxed.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
-    <script src="assets/js/jquery.min.js"></script>
+
+    <!--     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+ -->
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-    <!-- Sweet Scroll AOS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--     
 
     <link rel="stylesheet" href="AdminLTE-2.4.2/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="AdminLTE-2.4.2/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="AdminLTE-2.4.2/dist/css/skins/_all-skins.min.css"> -->
 
 
-    <link rel="stylesheet" href="AdminLTE-2.4.2/bower_components/Ionicons/css/ionicons.min.css">
+    <!--   <link rel="stylesheet" href="AdminLTE-2.4.2/bower_components/Ionicons/css/ionicons.min.css"> -->
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+
+    <?php include_once "modulos/admin/inclucion.php"; ?>
+    <style>
+    * {
+        outline: none !important;
+        scroll-behavior: smooth;
+    }
+    </style>
 
 </head>
 
@@ -85,7 +106,7 @@ if(!isset($_SESSION))
             if ($_GET["ruta"] == "inicio") {
               # code...
               
-            include "modulos/navbar.php";
+            include_once "modulos/navbar.php";
             include_once "modulos/portada.php";
             include_once "modulos/puntos1.php";
             include_once "modulos/caracteristicas2.php";
@@ -94,8 +115,8 @@ if(!isset($_SESSION))
             include_once "modulos/Slider5.php";
             include_once "modulos/mapa.php";
             include_once "modulos/galeria.php";
-            include_once "modulos/contacto.php";
             include_once "modulos/quienes.somos.php";
+            include_once "modulos/contacto.php";
             include_once "modulos/footer.php";
 
             } elseif ($_GET["ruta"] == "login") {
@@ -106,7 +127,16 @@ if(!isset($_SESSION))
 
     <?php
               include_once "modulos/login.php";
+              include_once "modulos/admin/Admin-footer.php";
             }
+            
+
+            #usuarios Normales Que tienen un BOT ----------------
+             elseif ($_GET["ruta"] == "recuperar") {
+              # Crear Cuenta...              
+              include_once "modulos/users/".$_GET["ruta"].".php";
+            }
+            #----------------------------------------------------
             
             
             elseif ($_GET["ruta"] == "salir") {
@@ -115,7 +145,9 @@ if(!isset($_SESSION))
             }
             
             
-            else if ($_GET["ruta"] == "Admin" ||
+            else if ($_GET["ruta"] == "Admin" ||  
+                     $_GET["ruta"] == "Admin-inicio" ||          
+                     $_GET["ruta"] == "cuenta" ||          
                      $_GET["ruta"] == "Admin-state") {
               # code...
                             if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok") {
@@ -143,7 +175,9 @@ if(!isset($_SESSION))
 
                               
                               # Usuario Logueado...
-                              include "modulos/admin/Admin-navbar.php";
+                              include_once "modulos/admin/inclucion.php";
+                              include_once "modulos/admin/Admin-menu.php";
+                              include_once "modulos/admin/Admin-header.php";
                               include_once "modulos/admin/".$_GET["ruta"].".php";
                               include_once "modulos/admin/Admin-footer.php";
 
@@ -191,6 +225,17 @@ if(!isset($_SESSION))
 
 
     ?>
+
+
+
+    <!--  SECTION  Enlazamos ls archivos JS LOCALES... -->
+
+
+
+
+
+
+
 
     <!-- Inicializar Sweet Scroll AOS -->
     <script>

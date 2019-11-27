@@ -81,7 +81,8 @@ class ControladorUsuarios
                         if ($ultimoLogin == "ok") {
                             # Podemos Iniciar...
                             # Redireccionamos con un JS..
-                            echo '<script> window.location = "Admin"; </script>';
+                            echo '<script> window.location = "Admin-inicio"; </script>';
+                           /*  echo '<script> window.location = "Admin"; </script>'; */
                           
 
                         }
@@ -146,6 +147,30 @@ class ControladorUsuarios
         # Si viene una variable $_POST con nombre NuevoUsuario ...
         if(isset($_POST["nuevoUsuario"])){
 
+
+            if (empty($_POST["nuevoUsuario"])) {
+                # code...
+                
+                    echo '<script> 
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "¡El usuario no puede ir vacío o con caracteres especiales!",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar",
+                        closeOnConfirm: false
+                      }).then((result)=>{
+                            
+                            if(result.value){
+                                window.location = "cuenta";
+                            }
+                      });
+                    </script>';
+                
+            }
+
+            
+
             #Pregmatch para Permitir Caracteres especiales Tildes Excepto el usuario...
             if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
             preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"]) &&
@@ -167,9 +192,9 @@ class ControladorUsuarios
                             $nuevoAlto = 500;
 
                             # ANCHOR RCREAMOS LA CARPETA DONDE SE GUARDARA LA IMAGEN...
-                            $directorio = "vistas/img/usuarios/".$_POST["nuevoUsuario"];
+                            $directorio = "vista/img/usuarios/".$_POST["nuevoUsuario"];
 
-                            #Directorio, permisos Lectura y Escritura (0755)
+                            #Directorio, permisos Lectura y Escritura (0755) 
                             mkdir($directorio, 0755);
 
                             /* ANCHOR METODO PARA GUARDAR EN JPEG  */
@@ -177,7 +202,7 @@ class ControladorUsuarios
 
                                 $aleatorio = mt_rand(100,999);
                                 # Guardamos imagen en directorio JPEG
-                                $ruta = "vistas/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleatorio.".jpg";
+                                $ruta = "vista/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleatorio.".jpg";
 
                                 #Cortamos la imagen
                                 $origen     = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);   
@@ -197,7 +222,7 @@ class ControladorUsuarios
 
                                 $aleatorio = mt_rand(100,999);
                                 # Guardamos imagen en directorio PNG
-                                $ruta = "vistas/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleatorio.".png";
+                                $ruta = "vista/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleatorio.".png";
 
                                 #Cortamos la imagen
                                 $origen     = imagecreatefrompng($_FILES["nuevaFoto"]["tmp_name"]);   
@@ -230,9 +255,8 @@ class ControladorUsuarios
                 $datos  =   array("nombre" => $_POST["nuevoNombre"],
                                   "usuario" => $_POST["nuevoUsuario"],
                                   "password" => $encriptar,
-                                  "perfil" => $_POST["nuevoPerfil"],
-                                  "area" => $_POST["nuevoArea"],
-                                  "puesto" => $_POST["nuevoPuesto"],
+                                  "email" => $_POST["nuevoemail"],
+                                  "telefono" => $_POST["nuevotelefono"],
                                   "foto" => $ruta);
 
                 $respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
@@ -240,35 +264,29 @@ class ControladorUsuarios
                 if ($respuesta == "ok") {
                     # Responde la DB con OK...
                     echo '<script> 
-                    swal({
-                    type: "success",
-                    title: "¡El usuario se a guardado Correctamente!",
-                    showConfirmButton: true,
-                    confirmButtonText: "Cerrar",
-                    closeOnConfirm: false
-
-                    }).then((result)=>{
+                    Swal.fire(
+                     "'.$_POST["nuevoNombre"].'!",
+                     "¡Se a guardado Correctamente!" 
+                    ).then((result)=>{
                         
                         if(result.value){
-                            window.location = "usuarios";
+                            window.location = "login";
                         }
                     });
                     </script>';
-                }
-               
-            }else{
+                }else{
                 echo '<script> 
-                swal({
-                    type: "error",
-                    title: "¡El usuario no puede ir vacío o con caracteres especiales!",
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "¡El usuario no puede ir vacío o con caracteres especiales!",
                     showConfirmButton: true,
                     confirmButtonText: "Cerrar",
                     closeOnConfirm: false
-
                   }).then((result)=>{
                         
                         if(result.value){
-                            window.location = "usuarios";
+                            window.location = "cuenta";
                         }
                   });
                 </script>';
@@ -279,6 +297,106 @@ class ControladorUsuarios
     }
 
 
+    
+}
+
+
+    //--------------------------------
+    //NOTE RECUPERAR USUARIO
+    //--------------------------------
+
+    static public function ctrRecuperarUsuario($item, $valor)
+    {
+        # Enviamos los datos a la Tabla Usuarios
+
+         # code...
+         if (isset($_POST["recuperarEmail"])) {
+
+            if (empty($_POST["recuperarEmail"])) {
+                # code...
+                
+                    echo '<script> 
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "¡Es necesario ingresar un correo!",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar",
+                        closeOnConfirm: false
+                      }).then((result)=>{
+                            
+                            if(result.value){
+                                window.location = "recuperar";
+                            }
+                      });
+                    </script>';
+                
+            }
+
+
+                        $tabla = "usuarios";
+                        $datos =  $_POST["correo"];
+
+
+                        $respuesta = ModeloContacto::mdlRecuperarUsuario($tabla, $datos);
+
+                        if ($respuesta == "ok") {
+                            # code...
+                             # Si pasa la validacion del envio de correo y grardar la base de datos...
+                           
+                            echo '<script>
+                                Swal.fire({
+                                    title: "Enviado!",
+                                    text: "Pronto nos comunicaremo con usted.",
+                                    imageUrl: "assets/img/sendEmail.gif",
+                                    imageWidth: 400,
+                                    imageHeight: 300,
+                                    imageAlt: "Custom image",
+                                    confirmButtonText: "OK"
+                                    }).then((result) => {
+                                        if (result.value) {
+                                            window.location = "login";
+                                        }
+                                    })
+                               </script>';    
+                                
+                                
+
+                                
+
+                              
+                            
+                        }
+                        else if ($respuesta == "error"){
+                            # Validacion del telefono...
+                            echo '<script>Swal.fire({
+                            title: "Disculpe las Molestias!",
+                            text: "Tenemos un inconveniente, intente mas tarde.",
+                            confirmButtonText: "OK"
+                            })</script>';                
+                        
+                        }
+                       
+
+
+
+
+
+
+                
+        }else {
+            # code...
+            /* echo "No tengo valores"; */
+        } 
+    }
+
+
+
+
+
+
+
+    
     //--------------------------------
     //NOTE MOSTRAR USUARIO ASIGNADOS
     //--------------------------------
